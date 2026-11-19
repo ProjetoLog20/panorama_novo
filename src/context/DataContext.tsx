@@ -156,6 +156,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
         supabase.from('orcamentos').select('*')
           .in('conta_codigo', CONTAS_ORCAMENTO_USADAS)
           .gte('ano', new Date().getFullYear() - 2)
+          .order('id', { ascending: true })
           .range(from, to),
       ),
     ])
